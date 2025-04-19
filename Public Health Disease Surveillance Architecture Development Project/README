@@ -1,0 +1,111 @@
+# Public Health Disease Surveillance Architecture Development Project
+
+## 📌 Project Overview
+
+This project demonstrates how an integrated public health disease surveillance system can be developed using open-source tools. It simulates an infectious disease outbreak (COVID-19) through synthetic EHR data, facilitates interoperable data exchange using FHIR standards, and visualizes data insights with interactive dashboards.
+
+## 🎯 Objectives
+
+- Install and secure OpenEMR as an EHR system.
+- Generate synthetic patient and syndromic surveillance data with Synthea.
+- Deploy a HAPI-FHIR server to enable standardized data exchange.
+- Simulate API-based resource creation and retrieval using Postman.
+- Aggregate and visualize data using Python and Google Looker Studio.
+- Identify health trends and data quality issues to guide decision-making.
+
+---
+
+## ⚙️ Technologies Used
+
+- **Ubuntu Server** – Server environment
+- **OpenEMR** – Electronic Health Record system
+- **Synthea** – Synthetic patient and COVID-19 data generation
+- **HAPI-FHIR** – FHIR server for health data exchange
+- **Postman** – API testing and simulation
+- **Python** – Data processing and transformation
+- **Google Looker Studio** – Interactive dashboards for data visualization
+
+---
+
+## 📈 System Architecture Flow
+
+1. Generate synthetic patient and COVID-19 data using Synthea.
+2. Import data into OpenEMR to simulate hospital EHR systems.
+3. Use HAPI-FHIR to exchange health data in FHIR format.
+4. Interact with the FHIR API using Postman for CRUD operations.
+5. Clean and merge data using Python.
+6. Visualize outbreak trends using Google Looker Studio dashboards.
+
+---
+
+## 🏥 Hospital Data Simulation
+
+| Hospital         | % Used of Total | Population Served | COVID-19 Patients Generated |
+|------------------|------------------|-------------------|------------------------------|
+| Aspirus          | 0.4%             | 20                | 20                           |
+| Portage Health   | 0.9%             | 81                | 81                           |
+| BCMH             | 3%               | 210               | 210                          |
+| MGH              | 6%               | 1200              | 1200                         |
+
+---
+
+## 🔗 Looker Studio Dashboard
+
+A real-time, auto-refreshing dashboard was created using Google Looker Studio to visualize:
+
+- **COVID-19 case maps by city**
+- **Bar charts comparing case counts across regions**
+
+🔍 **Dashboard Link**: [Disease Outbreak Surveillance Dashboard](https://lookerstudio.google.com/reporting/cb7d59d0-d313-4644-a665-272ef1861146)
+
+---
+
+## 🔄 FHIR Data Exchange (via Postman)
+
+### ✅ Creating a FHIR Resource:
+1. Set method to `POST`
+2. Provide HAPI-FHIR server endpoint
+3. Add headers and valid JSON payload
+4. Send request and check response
+5. Use `GET` to verify resource creation
+
+### 🔐 Managing Authentication:
+- Select appropriate auth method
+- Configure credentials in Postman
+- Retry or adjust on failure
+
+### ⚠️ Handling Errors:
+- Check HTTP status codes
+- Read error body
+- Adjust request and retry
+
+---
+
+## 📊 Data Aggregation & Insights
+
+- Python scripts were used to aggregate and clean JSON/CSV data.
+- Key findings:
+  - Some cities had significantly higher case counts, indicating localized outbreaks.
+  - Missing/inconsistent data fields highlighted the need for standardization.
+
+---
+
+## ❗ Challenges Faced
+
+| Area                  | Challenge                                                               | Solution                                                                  |
+|-----------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| Data Conversion       | Difficulties converting JSON to CSV                                     | Debugged Python script and refined parsing logic                          |
+| Virtual Machine Use   | Manually typing commands/links caused syntax errors                     | Sent instruction file to VM for easier copy-paste                         |
+| HAPI-FHIR Setup       | Verifying memory/port issues on server                                  | Used commands: `free -h`, `lsof -i :8080`, `ss -tulnp | grep 8080`        |
+
+---
+
+## ✅ Outcomes Achieved
+
+- A fully functional simulation of a disease surveillance system
+- Demonstrated real-world FHIR interoperability
+- Visual dashboards to support outbreak monitoring and planning
+- Applied secure server configurations and EHR deployment practices
+
+---
+
